@@ -1,0 +1,50 @@
+
+
+<form [formGroup]="livreForm" (ngSubmit)="OnSubmit()" >
+  <div class="content">
+  <div class="row">
+  <mat-form-field appearance="outline">
+    <mat-label>titre</mat-label>
+    <input matInput formControlName="titre" >
+  </mat-form-field>
+</div>
+<div class="row">
+  <mat-form-field appearance="outline">
+      <mat-label>Auteurs</mat-label>
+      <mat-select name="auteurs" multiple  formControlName="auteurs">
+        @for (a of listAuteurs; track a) {
+          <mat-option [value]="a">{{a.nom}}</mat-option>
+        }
+      </mat-select>
+  </mat-form-field>
+</div>
+
+<div class="row">
+  <mat-form-field appearance="outline">
+        <mat-label>Categories</mat-label>
+        <mat-select name="categories" multiple  formControlName="categories">
+          @for (a of listCategories; track a) {
+            <mat-option [value]="a">{{a.nom}}</mat-option>
+          }
+        </mat-select>
+  </mat-form-field>
+</div>
+  <div class="row">        
+  <mat-form-field appearance="outline">
+    <mat-label >isbn</mat-label>
+    <input matInput formControlName="isbn">
+  </mat-form-field>
+</div>
+<div class="row"> 
+  <mat-form-field appearance="outline">
+    <mat-label>synopsis </mat-label>
+    <input matInput formControlName="synopsis">
+  </mat-form-field>
+</div>
+  <div class="row">
+    <button mat-raised-button color="warn" type="submit" [disabled]="!livreForm.valid">Submit</button>
+  </div>
+  </div>
+  </form>
+
+

@@ -1,0 +1,70 @@
+
+<div class="main-body">
+<div class="mat-elevation-z8 " id="div_p" >
+  <table mat-table [dataSource]="dataSource" matSort >
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+      <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+    </ng-container>
+
+    <!-- titre Column -->
+    <ng-container matColumnDef="titre">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> titre </th>
+      <td mat-cell *matCellDef="let row"> {{row.titre}} </td>
+    </ng-container>
+
+    <!-- auters Column -->
+    <ng-container matColumnDef="auteurs">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> auteurs </th>
+      <td mat-cell *matCellDef="let row" > 
+        <span *ngFor="let auteur of row.auteurs">
+          {{ auteur.nom }}
+        </span>
+     </td>
+    </ng-container>
+
+    <!-- categories Column -->
+    <ng-container matColumnDef="categories">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> categories </th>
+      <td mat-cell *matCellDef="let row">  <span *ngFor="let cat of row.categories">
+       |{{ cat.nom }}
+      </span> </td>
+    </ng-container>
+
+      <!-- isbn Column -->
+      <ng-container matColumnDef="isbn">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> isbn </th>
+        <td mat-cell *matCellDef="let row"> {{row.isbn}} </td>
+      </ng-container>
+
+        <!-- synopsis Column -->
+    <ng-container matColumnDef="synopsis">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> synopsis </th>
+      <td mat-cell *matCellDef="let row"> <textarea rows="5" cols="33" matInput disabled style="margin-top: 8px;">{{row.synopsis}}</textarea> </td>
+    </ng-container>
+    <!-- action Column -->
+    <ng-container matColumnDef="action" >
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
+        <td mat-cell *matCellDef="let row">
+            
+            <button mat-icon-button color="primary" (click)="editLivre(row)" [hidden]=Su>
+                <mat-icon>edit</mat-icon>
+            </button> 
+            <button mat-icon-button color="warn" (click)="openDialog(row)" [hidden]=Su>
+                <mat-icon>delete</mat-icon>
+                
+            </button>
+     
+            </td> 
+      </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users" ></mat-paginator>
+</div>
+</div>

@@ -1,0 +1,11 @@
+.main-body {
+  padding-top: 20px;
+  margin: 0 auto;
+  max-width: 1248px;
+  
+}
+
+.action {
+  display:flex;
+  gap: 5px;
+}

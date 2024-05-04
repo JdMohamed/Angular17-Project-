@@ -1,0 +1,19 @@
+<form [formGroup]="livreForm" (ngSubmit)="OnSubmit()" >
+    <div class="content">
+    <div class="row">
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" >
+    </mat-form-field>
+  </div>
+    <div class="row">        
+    <mat-form-field appearance="outline">
+      <mat-label >Email</mat-label>
+      <input matInput formControlName="email">
+    </mat-form-field>
+  </div>
+    <div class="row">
+      <button mat-raised-button color="warn" type="submit" [disabled]="!livreForm.valid">Submit</button>
+    </div>
+    </div>
+    </form>
