@@ -61,9 +61,16 @@ export class EditLivreComponent implements OnInit{
           titre: livre.titre,
           isbn:livre.isbn,
           synopsis:livre.synopsis
+          
         });
+      this.livreForm.controls['auteurs'].setValue(livre.auteurs)
+      this.livreForm.controls['categories'].setValue(livre.categories)
+        ;
         })
       }
+    }
+    compare(c1: {nom: string}, c2: {nom: string}) {
+      return c1 && c2 && c1.nom === c2.nom;
     }
      
 isSelected(): boolean{

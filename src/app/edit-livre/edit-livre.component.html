@@ -11,9 +11,9 @@
 <div class="row">
   <mat-form-field appearance="outline">
       <mat-label>Auteurs</mat-label>
-      <mat-select name="auteurs" multiple  formControlName="auteurs">
+      <mat-select [compareWith]="compare" name="auteurs" multiple  formControlName="auteurs" ng>
         @for (a of listAuteurs; track a) {
-          <mat-option [value]="a">{{a.nom}}</mat-option>
+          <mat-option  [value]="a" >{{a.nom}}</mat-option>
         }
       </mat-select>
   </mat-form-field>
@@ -22,7 +22,7 @@
 <div class="row">
   <mat-form-field appearance="outline">
         <mat-label>Categories</mat-label>
-        <mat-select name="categories" multiple  formControlName="categories">
+        <mat-select [compareWith]="compare" name="categories" multiple  formControlName="categories">
           @for (a of listCategories; track a) {
             <mat-option [value]="a">{{a.nom}}</mat-option>
           }

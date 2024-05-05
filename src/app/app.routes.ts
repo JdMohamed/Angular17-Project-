@@ -7,6 +7,7 @@ import { authGuard } from './auth.guard';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './auth.service';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
+import { EditerUsersComponent } from './editer-users/editer-users.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -19,5 +20,6 @@ export const routes: Routes = [
     {path: 'edit/livre/:id',component:EditLivreComponent, canActivate: [authGuard]},
     {path: 'add/livre',component:AddLivreComponent, canActivate: [authGuard]},
     {providers:[AuthService],
-        path: 'profile',component:ProfileEditComponent, canActivate: [authGuard]}
+        path: 'profile',component:ProfileEditComponent, canActivate: [authGuard]},
+    {path: 'users',component:EditerUsersComponent, canActivate: [authGuard]}
 ];

@@ -9,6 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Livre, auteur } from '../livre';
 import { LivreService } from '../livre.service';
 import { CommonModule } from '@angular/common';
+import { ToolbarComponent } from "../toolbar/toolbar.component";
 import {
   MatDialog,
   MAT_DIALOG_DATA,

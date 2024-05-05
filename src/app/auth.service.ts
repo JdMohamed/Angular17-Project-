@@ -33,9 +33,8 @@ export class AuthService {
       this.http.post<any>('http://127.0.0.1:8000/api/login', user, { withCredentials: true })
       .subscribe((res: any) => {
         console.log(res.myToken);
-        localStorage.setItem('access_token', res.myToken);});
-         this.http.get<UserP>('http://127.0.0.1:8000/api/user', { withCredentials: true }).subscribe((res) => {
-        localStorage.setItem('user', JSON.stringify(res));
+        localStorage.setItem('access_token', res.myToken);
+        localStorage.setItem('user', JSON.stringify(res.user));
         this.router.navigate(['/livres']);
     });
      

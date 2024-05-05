@@ -2,7 +2,10 @@
     <button mat-button [matMenuTriggerFor]="menu">Menu</button>
   <mat-menu #menu="matMenu">
   <button mat-menu-item (click)="listLivre()">Listes des livres</button>
-    <button mat-menu-item (click)="ajoutLivre()">Ajouter un livre</button>
+  
+  <button mat-menu-item (click)="ajoutLivre()">Ajouter un livre</button>
+  <button mat-menu-item (click)="editerUsers()">Users</button>
+
   </mat-menu>
   
       <span>My App</span>

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, catchError, of, tap } from 'rxjs';
 import { Livre, auteur, categorie } from './livre';
 import { environement } from '../environements/environement';
+import { UserP } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,13 @@ import { environement } from '../environements/environement';
 export class LivreService {
 private readonly server:string = environement.API_BASE_URL;
   constructor(private http:HttpClient) { }
-
+  getUserList():Observable<UserP[]>{
+    return this.http.get<UserP[]>
+    (`${this.server}/api/users`).pipe(
+      tap((response) => this.log(response)),
+      catchError((error) => this.handleError(error, []))
+    );
+  }
   getLivreList():Observable<Livre[]>{
     return this.http.get<Livre[]>
     (`${this.server}/api/livre/`).pipe(
@@ -47,6 +54,14 @@ private readonly server:string = environement.API_BASE_URL;
     return this.http.put<Livre>
     (`${this.server}/api/livre/${livreID}/`,livre,httpOptions)
   }
+  updateUser(id:Number):Observable<UserP>{
+    const httpOptions={
+      headers: new HttpHeaders({'Content-Type': 'application/json'})}
+    return this.http.put<UserP>
+    (`${this.server}/api/updateUserPriv/${id}`,httpOptions)
+
+  }
+
 
   addLivre(livre:Object):Observable<Livre>{
     const httpOptions={
