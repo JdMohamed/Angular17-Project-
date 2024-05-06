@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 export interface User {
   email: string;
@@ -28,15 +29,10 @@ export class AuthService {
   redirectUrl: string;
   Su: boolean = false;
 
-  signIn(user: User) {
+  signIn(user: User):Observable<any> {
       console.log(user);
-      this.http.post<any>('http://127.0.0.1:8000/api/login', user, { withCredentials: true })
-      .subscribe((res: any) => {
-        console.log(res.myToken);
-        localStorage.setItem('access_token', res.myToken);
-        localStorage.setItem('user', JSON.stringify(res.user));
-        this.router.navigate(['/livres']);
-    });
+      return this.http.post<any>('http://127.0.0.1:8000/api/login', user, { withCredentials: true })
+      
      
     }
   
@@ -59,4 +55,5 @@ export class AuthService {
       this.router.navigate(['/login']);
     });
   }
+ 
 }

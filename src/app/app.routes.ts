@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthService } from './auth.service';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { EditerUsersComponent } from './editer-users/editer-users.component';
+import { AddUserComponent } from './add-user/add-user.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -21,5 +22,6 @@ export const routes: Routes = [
     {path: 'add/livre',component:AddLivreComponent, canActivate: [authGuard]},
     {providers:[AuthService],
         path: 'profile',component:ProfileEditComponent, canActivate: [authGuard]},
-    {path: 'users',component:EditerUsersComponent, canActivate: [authGuard]}
+    {path: 'users',component:EditerUsersComponent, canActivate: [authGuard]},
+    {path: 'adduser',component:AddUserComponent}
 ];

@@ -1,20 +1,36 @@
 <form [formGroup]="userForm" (ngSubmit)="OnSubmit()" >
     <div class="content">
+      <div class="error">
+       <mat-error>
+        {{errorMessage}}
+      </mat-error>
+      </div>
     <div class="row">
     <mat-form-field appearance="outline">
       <mat-label>Email</mat-label>
-      <input matInput formControlName="email" >
+      <input matInput formControlName="email" placeholder="pat@example.com">
     </mat-form-field>
   </div>
   
     <div class="row">        
-    <mat-form-field appearance="outline">
-      <mat-label >Password</mat-label>
-      <input matInput formControlName="password">
-    </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+        <mat-icon mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </mat-icon>
+      </mat-form-field>
   </div>
     <div class="row">
-      <button mat-raised-button color="warn" type="submit" [disabled]="!userForm.valid">Submit</button>
+      <button mat-raised-button color="warn" type="submit" [disabled]="!userForm.valid">Login</button>
+    </div>
+    <div class="info">
+      <p>vous avez pas de compte ,inscrivez-vous :</p><br>
+      
+    </div>
+    <div class="link">
+      
+      <button mat-stroked-button color="warn" (click)="addUser()">Ici</button>
     </div>
     </div>
     </form>

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, catchError, of, tap } from 'rxjs';
 import { Livre, auteur, categorie } from './livre';
 import { environement } from '../environements/environement';
-import { UserP } from './auth.service';
+import { User, UserP } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -54,11 +54,18 @@ private readonly server:string = environement.API_BASE_URL;
     return this.http.put<Livre>
     (`${this.server}/api/livre/${livreID}/`,livre,httpOptions)
   }
-  updateUser(id:Number):Observable<UserP>{
+  updateUser(data:Object):Observable<null>{
     const httpOptions={
       headers: new HttpHeaders({'Content-Type': 'application/json'})}
-    return this.http.put<UserP>
-    (`${this.server}/api/updateUserPriv/${id}`,httpOptions)
+    return this.http.put<null>
+    (`${this.server}/api/updateUserPriv`,data,httpOptions)
+
+  }
+  addUser(user:Object):Observable<User>{
+    const httpOptions={
+      headers: new HttpHeaders({'Content-Type': 'application/json'})}
+    return this.http.post<User>
+    (`${this.server}/api/register`,user,httpOptions)
 
   }
 

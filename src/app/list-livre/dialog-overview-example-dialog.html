@@ -3,6 +3,6 @@
   <h2>Tu veux vraiment supprimer ce livre {{data.titre}} ??</h2>
 </mat-dialog-content>
 <div mat-dialog-actions>
-  <button mat-raised-button  color="warn" (click)="deleteLivre(data.id)" color >Oui</button>
-  <button mat-raised-button color="primary" (click)="onNoClick()">Non</button>
+  <button mat-raised-button  color="warn" (click)="deleteLivre(data.id)"  >Oui</button>
+  <button mat-raised-button color="warn" (click)="onNoClick()" color>Non</button>
 </div>

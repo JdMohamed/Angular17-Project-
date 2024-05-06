@@ -42,7 +42,7 @@ export class EditerUsersComponent {
               private auth: AuthService) {}
  openDialog(user:UserP): void {
     const dialogRef = this.dialog.open(MyDialogComp, {
-      data: {id:user.id},
+      data: {email:user.email},
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -87,7 +87,7 @@ export class EditerUsersComponent {
   <h2>Confirm add this user to administrator ?</h2>
 </mat-dialog-content>
 <div mat-dialog-actions>
-  <button mat-raised-button color="primary" (click)="updateUser(data.id)">Oui</button>
+  <button mat-raised-button color="primary" (click)="updateUser(data)">Oui</button>
   <button mat-raised-button color="primary" (click)="onNoClick()">Non</button>
 </div>
   `,
@@ -102,9 +102,9 @@ export class MyDialogComp {
   onNoClick(): void {
     this.dialogRef.close();
   }
-  updateUser(id:Number){
+  updateUser(data:Object){
     this.dialogRef.close();
-    this.livreservice.updateUser(id).subscribe({
+    this.livreservice.updateUser(data).subscribe({
         next: (res) => {
           ;
         },

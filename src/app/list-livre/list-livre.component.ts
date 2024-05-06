@@ -81,10 +81,10 @@ export class ListLivreComponent implements AfterViewInit, OnInit{
     if ( userS!== null) {
       const userData=JSON.parse(userS)
     if(!userData.is_superuser){
-      this.displayedColumns= ['id', 'titre', 'auteurs', 'categories', 'isbn', 'synopsis'];
+      this.displayedColumns= ['id', 'titre', 'auteurs', 'categories', 'isbn'];
       this.getListLivre();
     }else{
-      this.displayedColumns= ['id', 'titre', 'auteurs', 'categories', 'isbn', 'synopsis','action'];
+      this.displayedColumns= ['id', 'titre', 'auteurs', 'categories', 'isbn','action'];
       this.getListLivre();
     }};
     

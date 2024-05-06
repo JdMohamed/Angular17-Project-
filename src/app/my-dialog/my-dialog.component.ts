@@ -9,10 +9,10 @@ import { MatButtonModule } from '@angular/material/button';
   imports: [MatDialogContent,MatButtonModule,MatDialogActions],
   template: `
     <mat-dialog-content>
-  <h2>You don't have permission</h2>
+  <h2>droit d'accès insuffisant</h2>
 </mat-dialog-content>
 <div mat-dialog-actions>
-  <button mat-raised-button color="primary" (click)="onNoClick()">Ok</button>
+  <button mat-raised-button color="warn" (click)="onNoClick()">Ok</button>
 </div>
   `,
   styles: ``

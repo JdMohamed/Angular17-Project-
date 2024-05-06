@@ -24,7 +24,7 @@
         <!-- categories Column -->
         <ng-container matColumnDef="is_superuser">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Administrateur </th>
-            <td mat-cell *matCellDef="let row"> {{row.is_superuser}} 
+            <td mat-cell *matCellDef="let row"> 
               <mat-slide-toggle (change)="openDialog(row)" [(ngModel)]="row.is_superuser"></mat-slide-toggle>
             </td>
            

@@ -29,7 +29,7 @@
     <ng-container matColumnDef="categories">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> categories </th>
       <td mat-cell *matCellDef="let row">  <span *ngFor="let cat of row.categories">
-       |{{ cat.nom }}
+       {{ cat.nom }}
       </span> </td>
     </ng-container>
 
@@ -40,10 +40,10 @@
       </ng-container>
 
         <!-- synopsis Column -->
-    <ng-container matColumnDef="synopsis">
+    <!-- <ng-container matColumnDef="synopsis">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> synopsis </th>
       <td mat-cell *matCellDef="let row"> <textarea rows="5" cols="33" matInput disabled style="margin-top: 8px;">{{row.synopsis}}</textarea> </td>
-    </ng-container>
+     </ng-container>-->
     <!-- action Column -->
     <ng-container matColumnDef="action" >
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
